@@ -19,6 +19,12 @@ public class SellerInitializer {
     /** The seller names. */
     private Map<Long, String> sellerNames = Collections.emptyMap();
 
+    public SellerInitializer(SellerService sellerService, Map<Long, String> sellerNames) {
+        super();
+        this.sellerService = sellerService;
+        this.sellerNames = sellerNames;
+    }
+
     /**
      * Inits the sellers.
      */

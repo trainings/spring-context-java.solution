@@ -19,9 +19,11 @@ public class ProposalServiceImpl implements ProposalService {
     
     private ProductService productService;
     
-    public ProposalServiceImpl(ProposalRepository repository) {
+    public ProposalServiceImpl(ProposalRepository repository, SellerService sellerService, ProductService productService) {
         super();
         this.repository = repository;
+        this.sellerService = sellerService;
+        this.productService = productService;
     }
 
     /* (non-Javadoc)

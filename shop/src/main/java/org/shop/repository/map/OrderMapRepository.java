@@ -12,11 +12,11 @@ import org.shop.repository.OrderRepository;
  * @author Dzmitry_Naskou
  */
 public class OrderMapRepository extends AbstractMapRepository<Order> implements OrderRepository {
-
-    public void setSequence(long sequence) {
-        super.sequence = sequence;
-    }
     
+    public OrderMapRepository(long initialSequence) {
+        super(initialSequence);
+    }
+
     /* (non-Javadoc)
      * @see org.shop.repository.OrderRepository#getOrderById(java.lang.Long)
      */

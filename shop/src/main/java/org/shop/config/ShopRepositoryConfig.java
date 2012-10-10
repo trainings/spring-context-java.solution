@@ -13,11 +13,17 @@ import org.shop.repository.map.ProductMapRepository;
 import org.shop.repository.map.ProposalMapRepository;
 import org.shop.repository.map.SellerMapRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 @Configuration
+@ImportResource("classpath:resource-config.xml")
 public class ShopRepositoryConfig {
+    
+    @Value("${repository.order.pk}")
+    private long initialSequence;
     
     @Autowired
     private UserRepositoryFactory userRepositoryFactory;
@@ -29,7 +35,7 @@ public class ShopRepositoryConfig {
     
     @Bean
     public OrderRepository orderRepository() {
-        return new OrderMapRepository();
+        return new OrderMapRepository(initialSequence);
     }
     
     @Bean
